@@ -1,22 +1,39 @@
-name: triggers #Nombre del Workflow
+# name: triggers #Nombre del Workflow
+# run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
+# on: 
+#   push:
+#     # branches:
+#     #   - 'aprendiendo-github-actions'
+#     #   - 'main'
+#   pull_request:
+#     types: [opened, synchronize, reopened]
+#     paths:
+#       - '**.ts'
+#   issues:
+#     types: [opened, closed, labeled]
+#     events: [created, deleted]
+# jobs: #Definicions de los Jobs
+#   steps-triggers: #Nombre del Job
+#     runs-on: ubuntu-latest #Donde se va ejecutar
+#     steps: #Listado de Steps
+#       - name: Checkout
+#         uses: actions/checkout@v4
+#       - name: "Paso Común a Todos los Triggers"
+#         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
+
+name: triggers
 run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
-on: 
+on:
   push:
-    # branches:
-    #   - 'aprendiendo-github-actions'
-    #   - 'main'
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
       - '**.ts'
   issues:
     types: [opened, closed, labeled]
-    events: [created, deleted]
-jobs: #Definicions de los Jobs
-  steps-triggers: #Nombre del Job
-    runs-on: ubuntu-latest #Donde se va ejecutar
-    steps: #Listado de Steps
-      - name: Checkout
-        uses: actions/checkout@v4
+jobs:
+  steps-triggers:
+    runs-on: ubuntu-latest
+    steps:
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
