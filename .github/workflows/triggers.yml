@@ -32,6 +32,7 @@ jobs:
     steps:
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
-              run: echo "USERNAME=${{ inputs.nombre }}"
+      - name: Definir nombre
+        run: echo "USERNAME=${{ inputs.nombre }}"
       - name: Definir lenguaje
         run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}"
