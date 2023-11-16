@@ -1,0 +1,25 @@
+name: triggers #Nombre del Workflow
+run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
+on: 
+  push:
+    branches:
+      - 'aprendiendo-github-actions'
+  pull-request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '**.ts'
+jobs: #Definicions de los Jobs
+  steps-triggers: #Nombre del Job
+    runs-on: ubuntu-latest #Donde se va ejecutar
+    steps: #Listado de Steps
+      - name: "Paso Común a Todos los Triggers"
+        run: echo "Este paso se ejecuta siempre"
+      - name: "Paso Push"
+        if: github.event_name == 'push'
+        run: echo "Este paso se ejecuta solo en caso de un push a la rama"
+      - name: Paso para Pull Request
+        if: github.event_name == 'pull_request'
+        run: echo "Este paso se ejecuta solo en caso de una pull request."
+      - name: "Paso Issues"
+        if: github.event_name == 'issues'
+        run: echo "Este paso se ejecuta solo en caso de un issues"
