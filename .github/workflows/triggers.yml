@@ -14,5 +14,7 @@ jobs: #Definicions de los Jobs
   steps-triggers: #Nombre del Job
     runs-on: ubuntu-latest #Donde se va ejecutar
     steps: #Listado de Steps
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
