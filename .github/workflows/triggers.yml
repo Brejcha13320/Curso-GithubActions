@@ -2,9 +2,9 @@ name: triggers #Nombre del Workflow
 run-name: ¡Estoy aprendiendo a usar diferentes Triggers!
 on: 
   push:
-    branches:
-      - 'aprendiendo-github-actions'
-      - 'main'
+    # branches:
+    #   - 'aprendiendo-github-actions'
+    #   - 'main'
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
