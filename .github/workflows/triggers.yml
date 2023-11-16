@@ -17,12 +17,3 @@ jobs: #Definicions de los Jobs
     steps: #Listado de Steps
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre"
-      - name: "Paso Push"
-        if: github.event_name == 'push'
-        run: echo "Este paso se ejecuta solo en caso de un push a la rama"
-      - name: Paso para Pull Request
-        if: github.event_name == 'pull_request'
-        run: echo "Este paso se ejecuta solo en caso de una pull request."
-      - name: "Paso Issues"
-        if: github.event_name == 'issues'
-        run: echo "Este paso se ejecuta solo en caso de un issues"
