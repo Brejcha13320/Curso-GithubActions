@@ -11,6 +11,7 @@ on:
       - '**.ts'
   issues:
     types: [opened, closed, labeled]
+    events: [created, deleted]
 jobs: #Definicions de los Jobs
   steps-triggers: #Nombre del Job
     runs-on: ubuntu-latest #Donde se va ejecutar
