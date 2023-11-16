@@ -1,0 +1,14 @@
+name: hola-mundo #Nombre del Workflow
+on: [push] #Evento que lo activara
+jobs: #Definicions de los Jobs
+  hola-mundo: #Nombre del Job
+    runs-on: ubuntu-latest #Donde se va ejecutar
+    steps: #Listado de Steps
+      - name: "Paso 1 - Clonar el repositorio"
+        uses: actions/checkout@v4
+      - name: "Paso 2 - Instalar Node"
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0 #Version especifica de Node
+      - name: "Paso 3 - Ejecutar el main.js"
+        run: node main.js
