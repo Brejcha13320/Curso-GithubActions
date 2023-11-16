@@ -10,9 +10,28 @@ on:
     types: [opened, edited, closed, labeled]
   issue_comment: 
     types:  [created, deleted]
+  workflow_dispatch:
+    inputs:
+      lenguaje_favorito:
+        description: 'Lenguaje favorito'
+        default: Javascript
+        required: true
+        type: choice
+        options:
+        - Python
+        - JavaScript
+        - Go
+      nombre:
+        description: 'Tu nombre'
+        required: true
+        default: Jesus
+        type: string
 jobs:
   steps-triggers:
     runs-on: ubuntu-latest
     steps:
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
+              run: echo "USERNAME=${{ inputs.nombre }}"
+      - name: Definir lenguaje
+        run: echo "LANGUAGE=${{ inputs.lenguaje_favorito }}"
