@@ -12,7 +12,7 @@ env:
     var1: Aprendiendo
     var2: Github
     var3: Actions
-    NOMBRE: vars.NOMBRE
+    NOMBRE: ${{ vars.NOMBRE }}
 jobs:
     inicializar:
         runs-on: ubuntu-latest
