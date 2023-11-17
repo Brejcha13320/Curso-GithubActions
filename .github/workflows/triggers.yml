@@ -32,6 +32,10 @@ jobs:
     steps:
       - name: "Paso Común a Todos los Triggers"
         run: echo "Este paso se ejecuta siempre, EVENT=${{github.event_name}}"
+  steps-triggers-dispatch:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-latest
+    steps:
       - name: Definir nombre
         run: echo "USERNAME=${{ inputs.nombre }}"
       - name: Definir lenguaje
