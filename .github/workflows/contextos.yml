@@ -33,6 +33,3 @@ jobs:
             - name: Imprimiento Contexto Job
               run: |
                 echo "Contexto Job ${{ toJson(job) }}"
-            - name: Imprimiento Contexto Steps
-              run: |
-                echo "Contexto Steps ${{ toJson(steps) }}"
