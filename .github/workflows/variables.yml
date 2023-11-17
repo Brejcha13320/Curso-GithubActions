@@ -1,0 +1,35 @@
+name: variables
+run-name: ¡Estoy aprendiendo a usar diferentes Variables!
+on:
+    push:
+    pull_request:
+        types: [opened, synchronize, reopened]
+    issues:
+        types: [opened, edited, closed, labeled]
+    issue_comment: 
+        types:  [created, deleted]
+env:
+    var1: Aprendiendo
+    var2: Github
+    var3: Actions
+    NOMBRE: vars.NOMBRE
+jobs:
+    inicializar:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Imprimiendo Variables de Entorno del Workflow
+              run: |
+                echo "Variables ${{ toJson(env) }}"
+                echo "Variable var1 ${{ env.var1 }}"
+                echo "Variable var2 ${{ env.var2 }}"
+                echo "Variable var3 ${{ env.var3 }}"
+            - name: Imprimiendo Variables de Entorno del Step
+              env:
+                var4: Esta es una variable del Step
+              run: |
+                echo "Variables ${{ env.var4 }}"
+            - name: Imprimiento Variable de Entorno Global del Repositorio
+              run: |
+                echo "Variable Global del Repositorio: ${{ env.NOMBRE }}"
