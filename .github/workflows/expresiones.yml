@@ -31,5 +31,11 @@ jobs:
               run: |
                 echo "Ha se disparado una accion de un Issue"
                 echo "Tipo de evento de Issue: ${{ github.event.action }}"
-
+    evento-issue_comment:
+        if: ${{ github.event_name == 'issue_comment' }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Job Issue Comment
+              run: |
+                echo "Ha se disparado una accion de un Issue Comment"
     
