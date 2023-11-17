@@ -14,7 +14,22 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
-            - name: Print issue information
+            - name: Imprimir Informacion del Evento
               run: |
                 echo "Tipo de Evento: ${{ github.event_name }}"
+    evento-push:
+        if: ${{ github.event_name == 'push' }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Job Push
+              run: echo "Se hizo un push"
+    evento-issue:
+        if: ${{ github.event_name == 'issues' }}
+        runs-on: ubuntu-latest
+        steps:
+            - name: Job Issue
+              run: |
+                echo "Ha se disparado una accion de un Issue"
+                echo "Tipo de evento de Issue: ${{ github.event.action }}"
+
     
