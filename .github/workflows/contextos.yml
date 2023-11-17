@@ -30,3 +30,9 @@ jobs:
                 echo "Variable var1 ${{ env.var1 }}"
                 echo "Variable var2 ${{ env.var2 }}"
                 echo "Variable var3 ${{ env.var3 }}"
+            - name: Imprimiento Contexto Job
+              run: |
+                echo "Contexto Job ${{ toJson(job) }}"
+            - name: Imprimiento Contexto Steps
+              run: |
+                echo "Contexto Steps ${{ toJson(steps) }}"
