@@ -1,0 +1,20 @@
+name: expresiones
+run-name: ¡Estoy aprendiendo a usar diferentes Expreciones!
+on:
+    push:
+    pull_request:
+        types: [opened, synchronize, reopened]
+    issues:
+        types: [opened, edited, closed, labeled]
+    issue_comment: 
+        types:  [created, deleted]
+jobs:
+    informacion-evento:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Print issue information
+              run: |
+                echo "Tipo de Evento: ${{ github.event_name }}"
+    
