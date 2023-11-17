@@ -33,3 +33,6 @@ jobs:
             - name: Imprimiento Variable de Entorno Global del Repositorio
               run: |
                 echo "Variable Global del Repositorio: ${{ env.NOMBRE }}"
+            - name: Imprimiento Variable Secret de Entorno Global del Repositorio
+              run: |
+                echo "Variable Global del Repositorio: ${{ secrets._SECRETO }}"
