@@ -16,4 +16,4 @@ jobs:
               uses: actions/checkout@v2
             - name: Imprimiendo Contextos
               run: |
-                echo "Contexto Github: ${{ github }}"
+                echo "Contexto Github: ${{ toJson(github) }}"
